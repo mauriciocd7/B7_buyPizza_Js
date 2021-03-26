@@ -6,6 +6,8 @@
 
 - JavaScript
 
+- Css
+
 <h4 align="left">Learned:<h4>
 
 - Use console on browser to view what i'm edit on js. 
