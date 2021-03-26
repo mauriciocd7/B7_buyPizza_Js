@@ -5,3 +5,7 @@
 - Html 
 
 - JavaScript
+
+<h4 align="left">Learned:<h4>
+
+
