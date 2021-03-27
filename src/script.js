@@ -9,6 +9,13 @@ pizzaJson.map((item, index)=>{ //mapear a lista utilizando uma arrow function re
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`; // toFixed- mostra as casas decimais | important, não são aspas simples, são ` para utilizar strings e atributos.
     pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;     // recebe name que está no json e atribui a classe pizza-item--name.
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
+
+
+    pizzaItem.querySelector('a').addEventListener('click', (e)=>{ //seleciona tag a, recebe o evento
+        e.preventDefault(); //cancela o default da ação
+
+        console.log("Clicou na pizza");
+    });
     
 
     c('.pizza-area').append(pizzaItem); //*querySelector - clona | | append adiciona mais um conteúdo, assim como em estrutura de dados.
