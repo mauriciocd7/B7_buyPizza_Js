@@ -9,16 +9,16 @@ pizzaJson.map((item, index)=>{ //mapear a lista utilizando uma arrow function re
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`; // toFixed- mostra as casas decimais | important, não são aspas simples, são ` para utilizar strings e atributos.
     pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;     // recebe name que está no json e atribui a classe pizza-item--name.
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
-
-
     pizzaItem.querySelector('a').addEventListener('click', (e)=>{ //seleciona tag a, recebe o evento
         e.preventDefault(); //cancela o default da ação
-
-        console.log("Clicou na pizza");
+        c('.pizzaWindowArea').style.opacity = 0;
+        c('.pizzaWindowArea').style.display = 'flex'; //setado como none por padrão no css, altera pra flex quando clica
+        setTimeout(()=>{
+            c('.pizzaWindowArea').style.opacity = 1;
+        }, 200); // 200 equival a 1/5 de segundo para fazer a animação do modal
     });
-    
 
-    c('.pizza-area').append(pizzaItem); //*querySelector - clona | | append adiciona mais um conteúdo, assim como em estrutura de dados.
+    c('.pizza-area').append(pizzaItem); //append adiciona mais um conteúdo, assim como em estrutura de dados.
     
 
 
