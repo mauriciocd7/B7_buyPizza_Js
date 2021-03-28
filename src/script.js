@@ -1,4 +1,4 @@
-let modalQt = 1;
+let modalQtd = 1;
 
 const c = (element)=>document.querySelector(element); //recebe o elemento e retorna o mesmo para a função. Objetivo e tornar código limpo.
 const cs = (element)=>document.querySelectorAll(element); //retorna um array com os itens que ele achou.
@@ -18,6 +18,9 @@ pizzaJson.map((item, index)=>{ //mapear a lista utilizando uma arrow function re
         
         //Modal
         let key = e.target.closest('.pizza-item').getAttribute('data-key'); //cria variável e adiciona também no modal. | closest() - procura o elemento mais próximo | pega o atributo data-key
+        modalQtd = 1; //atribui 1 ao abrir
+
+
 
         //preenche modal
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
@@ -32,6 +35,8 @@ pizzaJson.map((item, index)=>{ //mapear a lista utilizando uma arrow function re
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
 
         });  //querySelectorAll vai percorrer com foreach
+
+        c('.pizzaInfo--qt').innerHTML = modalQtd;
 
 
         c('.pizzaWindowArea').style.opacity = 0;
