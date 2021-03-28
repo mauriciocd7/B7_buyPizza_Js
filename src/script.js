@@ -1,3 +1,5 @@
+let modalQt = 1;
+
 const c = (element)=>document.querySelector(element); //recebe o elemento e retorna o mesmo para a função. Objetivo e tornar código limpo.
 const cs = (element)=>document.querySelectorAll(element); //retorna um array com os itens que ele achou.
 
@@ -21,6 +23,15 @@ pizzaJson.map((item, index)=>{ //mapear a lista utilizando uma arrow function re
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
         c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
         c('.pizzaBig img').src = pizzaJson[key].img;
+        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
+        c('.pizzaInfo--size.selected').classList.remove('selected'); //remove a classe selected para resetar ao clicar novamente
+        cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
+            if(sizeIndex == 2){ //farre as classes e na opção grande (index == 2) atribui a tag selected 
+                size.classList.add('selected');
+            }
+            size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
+
+        });  //querySelectorAll vai percorrer com foreach
 
 
         c('.pizzaWindowArea').style.opacity = 0;
