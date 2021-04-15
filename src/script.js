@@ -59,3 +59,13 @@ function closeModal(){
 cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item)=>{
     item.addEventListener('click', closeModal);
 }); //gerou um array com dois botões para cada um executa o closeModal quando clica 
+
+//Botões do modal
+c('.pizzaInfo--qtmenos').addEventListener('click', ()=>{  //()=> refere-se a função no evento click
+
+});
+
+c('.pizzaInfo--qtmais').addEventListener('click', ()=>{  //()=> refere-se a função no evento click
+    modalQtd++; 
+    c('.pizzaInfo--qt').innerHTML = modalQtd;
+});
