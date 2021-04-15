@@ -62,10 +62,20 @@ cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item)=>{
 
 //Botões do modal
 c('.pizzaInfo--qtmenos').addEventListener('click', ()=>{  //()=> refere-se a função no evento click
-
+    if(modalQtd > 1){ //condição simples
+        modalQtd--; 
+        c('.pizzaInfo--qt').innerHTML = modalQtd;
+    }
 });
 
 c('.pizzaInfo--qtmais').addEventListener('click', ()=>{  //()=> refere-se a função no evento click
     modalQtd++; 
     c('.pizzaInfo--qt').innerHTML = modalQtd;
 });
+
+cs('.pizzaInfo--size').forEach((size, sizeIndex) => {
+   size.addEventListener('click', ()=>{
+    c('.pizzaInfo--size.selected').classList.remove('selected'); //limpa o selecionado
+    size.classList.add('selected'); //selecina o proprio item que se clica.
+   });
+});     
