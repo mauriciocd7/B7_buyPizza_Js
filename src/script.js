@@ -89,11 +89,21 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex) => {
 c('.pizzaInfo--addButton').addEventListener('click', ()=>{ //carrinho de compras botão adicionar 
     let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key')); //pega o item data-key transforma em inteiro
 
-    cart.push({ //push - Add arrays
-        id:pizzaJson[modalKey].id,
-        size: size,
-        qtd: modalQtd
-    }); 
+    let identifier = pizzaJson[modalKey].id+'@'+size; //cria identificador para comparar os itens com o mesmo identifier
 
+    let key = cart.findIndex((item)=>item.identifier == identifier);  //verifica se o item é igual
+
+    if(key > -1){ // achou item
+        cart[key].qtd += modalQtd; //muda a quantidade
+    } else{ //não achou 
+        cart.push({ //push - Add arrays
+            identifier,
+            id:pizzaJson[modalKey].id,
+            size: size,
+            qtd: modalQtd
+        }); 
+    }
     closeModal();
 });
+
+
