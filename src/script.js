@@ -1,4 +1,7 @@
+let cart = []; //carrinho de compras
 let modalQtd = 1;
+let modalKey = 0;
+
 
 const c = (element) => document.querySelector(element); //recebe o elemento e retorna o mesmo para a função. Objetivo e tornar código limpo.
 const cs = (element) => document.querySelectorAll(element); //retorna um array com os itens que ele achou.
@@ -20,6 +23,9 @@ pizzaJson.map((item, index) => { //mapear a lista utilizando uma arrow function 
 
         let key = e.target.closest('.pizza-item').getAttribute('data-key'); //cria variável e adiciona também no modal. | closest() - procura o elemento mais próximo | pega o atributo data-key
         modalQtd = 1; //atribui 1 ao abrir
+        modalKey = key;
+
+
 
         //preenche modal
         c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
@@ -78,4 +84,16 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex) => {
     c('.pizzaInfo--size.selected').classList.remove('selected'); //limpa o selecionado
     size.classList.add('selected'); //selecina o proprio item que se clica.
    });
-});     
+});   
+
+c('.pizzaInfo--addButton').addEventListener('click', ()=>{ //carrinho de compras botão adicionar 
+    let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key')); //pega o item data-key transforma em inteiro
+
+    cart.push({ //push - Add arrays
+        id:pizzaJson[modalKey].id,
+        size: size,
+        qtd: modalQtd
+    }); 
+
+    closeModal();
+});
