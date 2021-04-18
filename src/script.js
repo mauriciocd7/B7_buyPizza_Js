@@ -137,8 +137,22 @@ function updateCart(){
 
             cartItem.querySelector('img').src = pizzaItem.img;
             cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName;
-            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qtd
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qtd;
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', ()=>{
+                if(cart[i].qtd > 1){
+                    cart[i].qtd--;
+                }else{
+                    cart.splice(i, 1);  //remove item quando 1 e clica no botão menos
+                }
+                updateCart();
 
+            });
+
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', ()=>{
+                cart[i].qtd++; //adiciona o item específico pelo for
+                updateCart(); //atualiza o visual
+            });
+            
             c('.cart').append(cartItem); //adiciona o item
               
 
