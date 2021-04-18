@@ -112,9 +112,34 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{ //carrinho de compras
 function updateCart(){
     if(cart.length > 0){ //verifica se tem item no carrinho
         c('aside').classList.add('show'); 
-        for(let i in cart){
+        c('.cart').innerHTML = ''; 
+
+
+        for(let i in cart){ //como um foreach
 
             let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id); //retorna os itens do carrinho no json 
+            let cartItem = c('.models .cart--item').cloneNode(true); //clona o item
+            let pizzaSizeName;
+            
+            switch(cart[i].size){ // switch case para atribuir letras a variável criada mostrando ao usuário
+                case 0:
+                    pizzaSizeName = 'P'
+                    break;
+                case 1: 
+                    pizzaSizeName = 'M'
+                    break;
+                case 2:
+                    pizzaSizeName = 'G'
+                    break;    
+            }
+
+            let pizzaName = `${pizzaItem.name} (${pizzaSizeName})`;  //template string para adicionar o tipo da pizza junto ao nome 
+
+            cartItem.querySelector('img').src = pizzaItem.img;
+            cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName;
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qtd
+
+            c('.cart').append(cartItem); //adiciona o item
               
 
 
