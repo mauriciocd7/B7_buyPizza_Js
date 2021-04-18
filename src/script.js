@@ -108,19 +108,27 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{ //carrinho de compras
     closeModal();
 });
 
+c('.menu-openner').addEventListener('click', ()=>{ //evento de clique no carrinho mobile
+    if(cart.length > 0){
+        c('aside').style.left = '0vw'; //seta o style css em 0 para mostrar o carrinho 
+    }
+})
+
+c('.menu-closer').addEventListener('click', ()=>{
+    c('aside').style.left = '100vw';
+});
 
 function updateCart(){
+
+    c('.menu-openner span').innerHTML = cart.length; //mobile
+
     if(cart.length > 0){ //verifica se tem item no carrinho
         c('aside').classList.add('show'); 
         c('.cart').innerHTML = ''; 
 
-
         let subtotal = 0;
         let desconto = 0;
         let total = 0;
-
-
-
 
         for(let i in cart){ 
 
@@ -172,6 +180,7 @@ function updateCart(){
         c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
         c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
     } else{
-        c('aside').classList.add('remove'); 
+        c('aside').classList.remove('show'); 
+        c('aside').style.left = '100vw';
     }
 }
