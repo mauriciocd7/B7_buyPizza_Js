@@ -115,9 +115,19 @@ function updateCart(){
         c('.cart').innerHTML = ''; 
 
 
-        for(let i in cart){ //como um foreach
+        let subtotal = 0;
+        let desconto = 0;
+        let total = 0;
+
+
+
+
+        for(let i in cart){ 
 
             let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id); //retorna os itens do carrinho no json 
+
+            subtotal += pizzaItem.price * cart[i].qtd; //calcula subtotal
+
             let cartItem = c('.models .cart--item').cloneNode(true); //clona o item
             let pizzaSizeName;
             
@@ -145,7 +155,6 @@ function updateCart(){
                     cart.splice(i, 1);  //remove item quando 1 e clica no botão menos
                 }
                 updateCart();
-
             });
 
             cartItem.querySelector('.cart--item-qtmais').addEventListener('click', ()=>{
@@ -154,10 +163,14 @@ function updateCart(){
             });
             
             c('.cart').append(cartItem); //adiciona o item
-              
-
-
         }
+
+        desconto = subtotal * 0.1; 
+        total = subtotal - desconto;
+
+        c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`; //dois digitos 
+        c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
+        c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
     } else{
         c('aside').classList.add('remove'); 
     }
