@@ -103,7 +103,23 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{ //carrinho de compras
             qtd: modalQtd
         }); 
     }
+
+    updateCart(); //atualiza o carrinho
     closeModal();
 });
 
 
+function updateCart(){
+    if(cart.length > 0){ //verifica se tem item no carrinho
+        c('aside').classList.add('show'); 
+        for(let i in cart){
+
+            let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id); //retorna os itens do carrinho no json 
+              
+
+
+        }
+    } else{
+        c('aside').classList.add('remove'); 
+    }
+}
