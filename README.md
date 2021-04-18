@@ -13,3 +13,8 @@
 - Use console on browser to view what i'm edit on js. 
 - Console.log(var) to test what you received on var.
 - 
+
+
+<h4 align="left">available on:<h4>
+
+- [Buy Pizza](https://mauriciocd7.github.io/B7_buyPizza_Js/src/) 
