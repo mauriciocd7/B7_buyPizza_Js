@@ -15,9 +15,8 @@
 - Switch / For / if, else  
 - Manipulate Css style with Javascript
 - Array as Json to use on script.js
-
 - The lines are commented on pt-br my native language
 
-<h4 align="left">available on:<h4>
+<h4 align="left">Available on:<h4>
 
 - [Buy Pizza](https://mauriciocd7.github.io/B7_buyPizza_Js/src/) 
