@@ -19,4 +19,4 @@
 
 <h4 align="left">Available on:<h4>
 
-- [Buy Pizza](https://mauriciocd7.github.io/B7_buyPizza_Js/src/) 
+- [Buy Pizza](https://mauriciocd7.github.io/JS_B7_buyPizza/src/) 
